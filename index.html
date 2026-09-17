@@ -153,20 +153,28 @@ html[data-theme="light"] #d #hero .dots{
   background-image:radial-gradient(rgba(12,45,66,.05) 1.05px,transparent 1.45px);
 }
 html[data-theme="light"] #d #hero .before{background-image:none}
-html[data-theme="light"] #d #hero .after{background-image:none}
+html[data-theme="light"] #d #hero .after{
+  background-image:linear-gradient(180deg,#F8FAFC 0%,#F2F6FB 52%,#EAF0F7 100%);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 40%,transparent 62%);
+          mask-image:linear-gradient(to bottom,#000 0%,#000 40%,transparent 62%);
+}
 html[data-theme="light"] #d #hero .hero-in::before{display:none}
 html[data-theme="light"] #d #hero .globe{filter:none}
-#d CLIENT,#d round 10 (supersedes the paragraph above): the light globe sits
-   EXACTLY where the dark one sits. She is comparing the two heroes to each
-   other,#d not to dnb-final — and the instruction from the start was to keep the
-   dark composition. So the light hero now inherits `#hero .globe` untouched and
-   there is no light-specific placement at all; `?globe=orig` is the only way to
-   see the dnb-final framing,#d kept because it is the one that reproduces that
-   page's dot colour. */
-html[data-theme="light"][data-globe="orig"] #hero .globe{
-  left:50%;transform:translateX(-50%);
-  top:130.68px;width:1356px;height:1356px;
+html[data-theme="light"] #d #hero .globe{
+  left:0; top:18%; width:100%; height:auto; aspect-ratio:1 / 1; transform:none;
 }
+html[data-theme="light"][data-globe="dark"] #d #hero .globe{
+  left:52.49px; top:-27.87px; width:1266.12px; height:1266.12px; aspect-ratio:auto;
+}
+html[data-theme="light"] #d #hero .hblock{
+  left:0; right:0; top:11.6%; bottom:auto; width:auto; height:auto;
+  display:flex; flex-direction:column; align-items:center;
+}
+html[data-theme="light"] #d #hero .hstack{
+  position:static; translate:none; bottom:auto; left:auto;
+  width:100%; max-width:746px; margin-inline:auto;
+}
+html[data-theme="light"] #d #hero .btnw{position:static; left:auto; top:auto}
 html[data-theme="light"] #d #hero .shot{display:none}
 html[data-theme="light"] #d #hero .globe{display:block}
 html[data-theme="light"] #d #hero h1{color:#0e1621}
@@ -1766,14 +1774,16 @@ html[data-motion="off"] #m #m-cta .nodes{display:none}
 }
 #m #m-fb .cols .d.open .panel{grid-template-rows:1fr;padding-bottom:18px}
 #m #m-fb .cols .panel > .pin{overflow:hidden;min-height:0}
-#m #m-fb .cols .panel h5{font-size:14px;font-weight:500;line-height:22px;color:#fff;
-  text-align:right;padding:10px 0 2px}
-#m #m-fb .cols .panel a{display:block;font-size:14px;font-weight:400;line-height:26px;
-  color:#9fb0bd;text-decoration:none;text-align:right}
+#m #m-fb .cols .panel h5{padding:10px 0 2px}
+#m #m-fb .cols .panel h5 span{font-size:15px;font-weight:400;line-height:22.5px;color:#fff;text-align:right}
+#m #m-fb .cols .panel a{display:block;text-decoration:none;padding:2.5px 0}
+#m #m-fb .cols .panel a span{font-size:14px;font-weight:400;line-height:21px;color:#9fb0bd;text-align:right}
 #m #m-fb .pm{position:relative;flex:0 0 auto;width:14px;height:14px}
 #m #m-fb .pm i{position:absolute;background:var(--teal-2)}
 #m #m-fb .pm i.h{left:0;top:6.25px;width:14px;height:1.5px}
-#m #m-fb .pm i.v{left:6.25px;top:0;width:1.5px;height:14px}
+#m #m-fb .pm i.v{left:6.25px;top:0;width:1.5px;height:14px;
+  transform-origin:50% 50%;transition:transform .34s cubic-bezier(.19,1,.22,1)}
+#m #m-fb .cols .d.open .pm i.v{transform:rotate(90deg)}
 #m #m-fb .cols a,#m #m-fb .cols span{
   font-size:15px;font-weight:500;line-height:22.5px;color:#fff;
   white-space:nowrap;text-align:right;text-decoration:none;
@@ -3053,8 +3063,8 @@ html,body{background:#fcfdfe;margin:0;padding:0}
   var a = document.querySelector('#hero .btn-lite .badge img');
   if (a) a.setAttribute('src','fig/btn-arrow.svg');
   
-  if (/[?&]globe=orig/.test(location.search))
-    document.documentElement.setAttribute('data-globe','orig');
+  if (/[?&]globe=dark/.test(location.search))
+    document.documentElement.setAttribute('data-globe','dark');
 })();
 </script>
 <script>
@@ -3231,8 +3241,10 @@ html,body{background:#fcfdfe;margin:0;padding:0}
       btn.addEventListener('click', function (e) {
         e.preventDefault();
         var open = item.classList.contains('open');
-        if (single) {
+        
+        if (single || open) {
           [].forEach.call(root.querySelectorAll(itemSel + '.open'), function (o) {
+            if (!single && o !== item) return;
             o.classList.remove('open');
             var b = o.querySelector(btnSel);
             if (b) b.setAttribute('aria-expanded', 'false');
