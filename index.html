@@ -3091,6 +3091,13 @@ html,body{background:#fcfdfe;margin:0;padding:0}
     lg.setAttribute('theme', 'light');
     lg.setAttribute('bg', 'off');
     mg.appendChild(lg);
+    
+    customElements.whenDefined('dnb-globe').then(function () {
+      if (!lg.shadowRoot) return;
+      var st = document.createElement('style');
+      st.textContent = '.cards{display:none}';
+      lg.shadowRoot.appendChild(st);
+    });
   }
 
   
