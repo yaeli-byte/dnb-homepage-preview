@@ -1277,6 +1277,26 @@ html.stuck #m #m-bar .bar-cta{display:inline-flex}
   color:#e6e6e6;text-align:center;
 }
 #m #m-hero .btn .lbl{width:54.11px;text-align:center}
+html[data-theme="light"] #m #m-hero .card{
+  background:linear-gradient(180deg,#F8FAFC 0%,#F2F6FB 52%,#EAF0F7 100%);
+}
+html[data-theme="light"] #m #m-hero h1{color:#0e1621}
+html[data-theme="light"] #m #m-hero .sub{color:#5c6773}
+html[data-theme="light"] #m #m-hero .tabs{background:rgba(12,45,66,.06)}
+html[data-theme="light"] #m #m-hero .tabs span{color:#0083a1}
+html[data-theme="light"] #m #m-hero .tabs i img{filter:brightness(0) saturate(100%)
+  invert(38%) sepia(88%) saturate(1418%) hue-rotate(163deg) brightness(93%) contrast(101%)}
+html[data-theme="light"] #m #m-hero .btn{
+  background-image:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.12) 100%),
+                   linear-gradient(90deg,#1f1f29 0%,#1f1f29 100%);
+  border-color:#282834;
+}
+html[data-theme="light"] #m #m-hero .btn .badge{background:var(--teal-2)}
+html[data-theme="light"] #m #m-hero .btn .lbl{color:#fff}
+html[data-theme="light"] #m #m-hero .mglobe img{display:none}
+html[data-theme="light"] #m #m-hero .mglobe dnb-globe{
+  position:absolute; left:21.18px; top:-13.45px; width:612.88px; height:612.88px; display:block;
+}
 #m .btn{
   flex:0 0 auto;display:inline-flex;align-items:center;gap:8.19px;
   height:48px;padding:2.17px 15.04px 2.17px 7.86px;
@@ -2550,7 +2570,7 @@ html,body{background:#fcfdfe;margin:0;padding:0}
   <section id="m-hero" data-node="89:312">
     <div class="card" data-node="89:313">
 
-      <div class="globe" data-node="89:314">
+      <div class="globe mglobe" data-node="89:314">
         <img src="m2/fig/hero-globe.png" alt="">
       </div>
 
@@ -3064,6 +3084,15 @@ html,body{background:#fcfdfe;margin:0;padding:0}
   
   var a = document.querySelector('#hero .btn-lite .badge img');
   if (a) a.setAttribute('src','fig/btn-arrow.svg');
+  
+  var mg = document.querySelector('.mglobe');
+  if (mg && !mg.querySelector('dnb-globe')) {
+    var lg = document.createElement('dnb-globe');
+    lg.setAttribute('theme', 'light');
+    lg.setAttribute('bg', 'off');
+    mg.appendChild(lg);
+  }
+
   
   if (/[?&]globe=dark/.test(location.search))
     document.documentElement.setAttribute('data-globe','dark');
