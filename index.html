@@ -26,7 +26,7 @@
 #d a{text-decoration:none;color:inherit}
 #d img{display:block;max-width:none}
 #d p{margin:0}
-#d #frame{position:relative;width:1440px;height:calc(9314.25px + var(--indx,0px) + var(--faqx,0px));margin:0 auto;overflow:hidden;background:#fcfdfe;direction:ltr}
+#d #frame{position:relative;max-width:100%;width:1440px;height:calc(9314.25px + var(--indx,0px) + var(--faqx,0px));margin:0 auto;overflow:hidden;background:#fcfdfe;direction:ltr}
 #d #frame .rtl,#d #frame p,#d #frame h1,#d #frame h2,#d #frame h3,#d #frame h4,#d #frame b{direction:rtl}
 #d #frame [dir="ltr"]{direction:ltr}
 #d .fr{position:absolute}
@@ -707,8 +707,13 @@ html[data-motion="on"] #d #tst .row .card{transition:none}
   background:var(--black-teal)}
 #d #fb .dotp{position:absolute;left:0;top:-12px;width:1356px;height:502px;border-radius:12px;
   background-image:radial-gradient(rgba(255,255,255,.5) .9px,transparent 1.3px);
-  background-color:#0a3b4b;
-  background-size:38px 38px;background-position:5.2px -17px}
+  background-color:#222a30;
+  background-size:38px 38px;background-position:center}
+#d #fb .dotp::after{
+  content:""; position:absolute; inset:0; border-radius:12px; pointer-events:none;
+  background-image:radial-gradient(46% 52% at 50% 44%,
+    rgba(34,42,48,.96) 0%, rgba(34,42,48,.82) 46%, rgba(34,42,48,0) 78%);
+}
 #d #fb .nl{position:relative;width:100%;height:527px;display:flex;flex-direction:column;gap:18px;align-items:center;padding:96px 0 0}
 #d #fb .nl .ebw{padding-bottom:2px}
 #d #fb .nl .eb{display:flex;gap:8px;align-items:center}
@@ -769,6 +774,47 @@ html[data-motion="on"] #d #tst .row .card{transition:none}
 #d #fb .legal a{font-family:var(--head);font-weight:400;font-size:13px;line-height:19.5px;color:#9fb0bd;white-space:nowrap}
 #d #fb .social{display:flex;gap:16px;align-items:center}
 #d #fb .social img{width:17px;height:17px}
+#d #fb .cols{display:flex;flex-direction:column;align-items:stretch;gap:44px}
+#d #fb .colstack{width:100%;gap:36px;display:flex;flex-direction:column;align-items:stretch}
+#d #fb .fbside{
+  width:100%; flex-direction:row; align-items:flex-end; justify-content:space-between;
+  gap:32px; padding-block-start:32px; border-block-start:1px solid rgba(255,255,255,.12);
+}
+#d #fb .fbside{flex-direction:row-reverse;align-items:flex-end}
+#d #fb .fbside .brand{align-items:flex-end;text-align:right}
+#d #fb .fbside .brand.nlx{flex:0 1 auto;min-width:0;align-items:flex-end}
+#d #fb .fbside .brand.nlx p{text-align:right}
+#d #fb .fbside .brand img{display:block;margin-inline-start:auto}
+#d #fb .fbside .brand img{width:252px;height:auto}
+#d #fb .fband{
+  font-family:var(--head); font-weight:400; font-size:15px; line-height:22.5px;
+  color:#fff; text-align:right; letter-spacing:0; margin:0 0 6px;
+}
+#d #fb .crow.five{
+  display:grid; grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:34px 22px; width:100%; direction:rtl; align-items:start;
+}
+#d #fb .col{width:auto;min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+#d #fb .col h4{height:auto;min-height:22.5px;margin:0 0 10px;display:block}
+#d #fb .col h4 span{white-space:normal;text-align:right;display:block}
+#d #fb .col a{width:100%;padding:4px 0;display:block}
+#d #fb .col a:first-of-type,#d #fb .col a.pt17{padding-top:0}
+#d #fb .col a span{white-space:normal;text-align:right;display:block}
+#d #fb .colstack,#d #fb .crow.five,#d #fb .col,#d #fb .ind2{text-align:right}
+#d #fb .col{align-items:stretch}
+#d #fb .fband{align-self:stretch}
+#d #fb .col.wide2{grid-column:span 2}
+#d #fb .ind2{display:grid;grid-template-columns:1fr 1fr;gap:0 22px;width:100%}
+@media (max-width:1080px){
+#d #fb .crow.five{grid-template-columns:repeat(3,minmax(0,1fr))}
+#d #fb .col.wide2{grid-column:span 3}
+#d #fb .ind2{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:700px){
+#d #fb .crow.five{grid-template-columns:repeat(2,minmax(0,1fr))}
+#d #fb .col.wide2{grid-column:span 2}
+#d #fb .ind2{grid-template-columns:1fr 1fr}
+}
 
 
 html.full #d #frame{height:8813px!important;overflow:visible!important}</style>
@@ -1192,6 +1238,10 @@ html.full #d #frame{height:8813px!important;overflow:visible!important}</style>
   #d #hero .hero-sub{width:min(554px, 100%)}
 
 }
+
+
+
+
 </style>
 <style>
 
@@ -2376,95 +2426,77 @@ html,body{background:#fcfdfe;margin:0;padding:0}
     </div>
     <div class="foot" data-node="527:8450">
     <div class="cols" data-node="541:53897">
-      <div class="colstack" data-node="541:53895">
-      
-      <div class="fgrp">
-        <h4><span>הפתרונות</span></h4>
-      <div class="crow" data-node="541:53898">
-        <div class="col" style="width:234.78px">
-          <h4><span>ניהול סיכונים</span></h4>
-          <a href="#"><span>תמונת מצב פיננסית</span></a>
-          <a href="#"><span>ניהול סיכונים פיננסיים</span></a>
-          <a href="#"><span>סיכוני ספקים</span></a>
-          <a href="#"><span>בקרה וטיוב רגולטיבי</span></a>
+      <div class="colstack">
+        
+        <p class="fband">מעטפת הפתרונות</p>
+        <div class="crow five">
+          <div class="col">
+            <h4><span>ניהול סיכונים</span></h4>
+            <a href="#"><span>תמונת מצב פיננסית</span></a>
+            <a href="#"><span>ניהול סיכונים פיננסיים</span></a>
+            <a href="#"><span>סיכוני ספקים</span></a>
+            <a href="#"><span>בקרה וטיוב רגולטיבי</span></a>
+          </div>
+          <div class="col">
+            <h4><span>אשראי צרכני</span></h4>
+            <a href="#"><span>בדיקות אשראי</span></a>
+            <a href="#"><span>ניטור ובקרת אשראי</span></a>
+            <a href="#"><span>פתרונות מותאמים לבחינת אשראי</span></a>
+          </div>
+          <div class="col">
+            <h4><span>ניהול דאטה ו-AI</span></h4>
+            <a href="#"><span>Master Data</span></a>
+            <a href="#"><span>API</span></a>
+            <a href="#"><span>AI</span></a>
+          </div>
+          <div class="col">
+            <h4><span>צמיחה עסקית</span></h4>
+            <a href="#"><span>שיווק ומכירות</span></a>
+            <a href="#"><span>הזדמנויות עסקיות</span></a>
+            <a href="#"><span>ניהול סיכוני צד שלישי</span></a>
+          </div>
+          <div class="col">
+            <h4><span>פתרונות נוספים מבית D&amp;B</span></h4>
+            <a href="#"><span>קפטן קרדיט</span></a>
+            <a href="#"><span>קפטן קרדיט לעסקים</span></a>
+            <a href="#"><span>duns 100</span></a>
+            <a href="#"><span>Dun's Guide</span></a>
+          </div>
         </div>
-        <div class="col" style="width:234.78px">
-          <h4><span>אשראי צרכני</span></h4>
-          <a href="#"><span>בדיקות אשראי</span></a>
-          <a href="#"><span>ניטור ובקרת אשראי</span></a>
-          <a href="#"><span>פתרונות מותאמים לבחינת אשראי</span></a>
+        <div class="crow five">
+          <div class="col wide2">
+            <h4><span>פתרונות לפי תעשיות</span></h4>
+            <div class="ind2">
+              <a href="#"><span>ייבוא וייצוא</span></a>
+              <a href="#"><span>ייצור ותעשייה</span></a>
+              <a href="#"><span>בנייה, תשתיות ונדל״ן</span></a>
+              <a href="#"><span>טכנולוגיה ותוכנה</span></a>
+              <a href="#"><span>קמעונאות ומוצרי צריכה</span></a>
+              <a href="#"><span>פיננסים, ביטוח ואשראי</span></a>
+              <a href="#"><span>תחבורה ולוגיסטיקה</span></a>
+              <a href="#"><span>אנרגיה, מים וסביבה</span></a>
+              <a href="#"><span>חקלאות</span></a>
+            </div>
+          </div>
+          <div class="col">
+            <h4><span>למה D&amp;B?</span></h4>
+            <a href="#"><span>הסיפור שלנו</span></a>
+            <a href="#"><span>מאחורי הדאטה שלנו</span></a>
+            <a href="#"><span>הצטרפו אלינו</span></a>
+            <a href="#"><span>שותפים לדרך</span></a>
+            <a href="#"><span>לשכת אשראי</span></a>
+          </div>
+          <div class="col">
+            <h4><span>מרכז המידע</span></h4>
+            <a href="#"><span>לקוחות מספרים</span></a>
+            <a href="#"><span>הבלוג שלנו</span></a>
+            <a href="#"><span>מספר D-U-N-S</span></a>
+          </div>
         </div>
-        <div class="col" style="width:234.8px">
-          <h4><span>צמיחה עסקית</span></h4>
-          <a href="#"><span>שיווק ומכירות</span></a>
-          <a href="#"><span>הזדמנויות עסקיות</span></a>
-        </div>
-      </div>
-      <div class="crow">
-        <div class="col" style="width:234.78px">
-          <h4><span>ניהול דאטה ו-AI</span></h4>
-          <a href="#"><span>Master Data</span></a>
-          <a href="#"><span>API</span></a>
-          <a href="#"><span>AI</span></a>
-        </div>
-        <div class="col" style="width:234.78px" data-needs-links="1">
-          <h4><span>ניהול סיכוני צד שלישי</span></h4>
-        </div>
-        <div class="col" style="width:234.78px">
-          <h4><span>פתרונות נוספים מבית D&amp;B</span></h4>
-          <a href="#"><span>קפטן קרדיט</span></a>
-          <a href="#"><span>קפטן קרדיט לעסקים</span></a>
-          <a href="#"><span>duns 100</span></a>
-          <a href="#"><span>Dun's Guide</span></a>
-        </div>
-      </div>
-      </div>
-      <div class="fgrp bare">
-      <div class="crow" data-node="541:53893">
-        <div class="col" style="width:234.78px" aria-hidden="true"></div>
-        <div class="col" style="width:234.78px" aria-hidden="true"></div>
-        <div class="col leaf" style="width:234.8px">
-          <h4><a href="#"><span>מספר D-U-N-S</span></a></h4>
-        </div>
-      </div>
-      </div>
-      <div class="fgrp">
-        <h4><span>פתרונות לפי תעשיות</span></h4>
-        <div class="flow">
-          <a href="#"><span>ייבוא וייצוא</span></a>
-          <a href="#"><span>ייצור ותעשייה</span></a>
-          <a href="#"><span>בנייה, תשתיות ונדל״ן</span></a>
-          <a href="#"><span>טכנולוגיה ותוכנה</span></a>
-          <a href="#"><span>קמעונאות ומוצרי צריכה</span></a>
-          <a href="#"><span>פיננסים, ביטוח ואשראי</span></a>
-          <a href="#"><span>תחבורה ולוגיסטיקה</span></a>
-          <a href="#"><span>אנרגיה, מים וסביבה</span></a>
-          <a href="#"><span>חקלאות</span></a>
-        </div>
-      </div>
-      
-      <div class="fgrp bare">
-      <div class="crow" data-node="541:53894">
-        <div class="col" style="width:234.78px">
-          <h4><span>למה D&amp;B?</span></h4>
-          <a href="#"><span>הסיפור שלנו</span></a>
-          <a href="#"><span>מאחורי הדאטה שלנו</span></a>
-          <a href="#"><span>הצטרפו אלינו</span></a>
-          <a href="#"><span>שותפים לדרך</span></a>
-          <a href="#"><span>לשכת אשראי</span></a>
-        </div>
-        <div class="col" style="width:234.78px">
-          <h4><span>מרכז המידע</span></h4>
-          <a href="#"><span>לקוחות מספרים</span></a>
-          <a href="#"><span>הבלוג שלנו</span></a>
-        </div>
-        <div class="col" style="width:234.8px" aria-hidden="true"></div>
-      </div>
-      </div>
       </div>
       <div class="fbside" data-node="541:53939">
         <div class="brand" data-node="541:53933">
-          <img src="fig/logo-white.png" alt="dun &amp; bradstreet">
+          <img src="fig/logo-tagline-white.png" alt="dun &amp; bradstreet — לדעת להחליט">
         </div>
         <span class="social" data-node="131:557">
           <img src="fig/soc-x.svg" alt="X">
@@ -3326,5 +3358,5 @@ html,body{background:#fcfdfe;margin:0;padding:0}
   }
 })();
 </script>
-<div id="buildstamp" hidden style="position:fixed;left:8px;bottom:8px;z-index:9999;direction:ltr;font:500 11px/1.4 ui-monospace,Menlo,monospace;letter-spacing:.4px;background:#071620;color:#9eedfa;border:1px solid rgba(158,237,250,.35);border-radius:6px;padding:6px 9px;pointer-events:none">build 2026-09-20 11:11 &middot; 9394df4</div><script>if(/[?&]build=1/.test(location.search))document.getElementById("buildstamp").hidden=false;</script>
+<div id="buildstamp" hidden style="position:fixed;left:8px;bottom:8px;z-index:9999;direction:ltr;font:500 11px/1.4 ui-monospace,Menlo,monospace;letter-spacing:.4px;background:#071620;color:#9eedfa;border:1px solid rgba(158,237,250,.35);border-radius:6px;padding:6px 9px;pointer-events:none">build 2026-09-22 15:51 &middot; 37d595b</div><script>if(/[?&]build=1/.test(location.search))document.getElementById("buildstamp").hidden=false;</script>
 </body></html>

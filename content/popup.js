@@ -53,7 +53,7 @@
         FIELDS.map(field).join('') +
         '<button class="cu-submit" type="button" data-node="558:24404">' +
           '<span class="badge"><img src="fig/btn-arrow-dark.svg" alt=""></span>' +
-          '<span class="lbl">צרו קשר</span>' +
+          '<span class="lbl">שליחה</span>' +
         '</button>' +
       '</div>' +
     '</div>' +
@@ -62,6 +62,16 @@
       '<div class="shot"><img src="fig/hero.png" alt=""></div>' +
     '</div>';
   document.body.appendChild(box);
+
+  
+  (function () {
+    var m = /[?&]cuv=([abc])/.exec(location.search);
+    if (m) document.documentElement.setAttribute('data-cuv', m[1]);
+    
+    var h = /[?&]cuh=([123])/.exec(location.search);
+    if (h) document.documentElement.setAttribute('data-cuh', h[1]);
+  })();
+
 
   var opener = null;
 
