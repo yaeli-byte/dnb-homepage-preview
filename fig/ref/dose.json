@@ -1,0 +1,38 @@
+[
+ {
+  "k": "עמוד הבית (חי)",
+  "sat": 3.4,
+  "dark": 26.8,
+  "mine": false
+ },
+ {
+  "k": "Ramp",
+  "sat": 0.53,
+  "dark": 3.3,
+  "mine": false
+ },
+ {
+  "k": "Lusha",
+  "sat": 16.8,
+  "dark": 2.4,
+  "mine": false
+ },
+ {
+  "k": "הלובי",
+  "sat": 1.91,
+  "dark": 35.7,
+  "mine": true
+ },
+ {
+  "k": "אפשרות 1",
+  "sat": 1.67,
+  "dark": 25.9,
+  "mine": true
+ },
+ {
+  "k": "אפשרות 2",
+  "sat": 0.4,
+  "dark": 24.1,
+  "mine": true
+ }
+]

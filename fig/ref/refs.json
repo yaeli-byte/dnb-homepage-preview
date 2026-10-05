@@ -1,0 +1,54 @@
+{
+  "_why": "Every reference crop, tagged with the PAGE type it came from and the SECTION type it actually is. A decision may only be offered options whose section_type matches the section being decided (R14, now at x3). Built because three rounds in a row shipped a hero, a feature row or a logo wall as an option for a numbers / band / proof decision.",
+  "_section_types": {
+    "hero": "the page's opening block",
+    "stats": "a row or grid of figures, nothing else",
+    "colour-band": "a full-bleed saturated band that is its own section",
+    "card-grid": "a repeating grid of content cards",
+    "feature-row": "one visual beside copy, alternating down the page",
+    "integrations": "named third-party systems / channels / certifications",
+    "quote-row": "customer quotes, with attribution",
+    "logo-wall-stat": "a wall of customer logos, optionally carrying one figure",
+    "tabbed-visual": "one large product visual behind a tab bar"
+  },
+  "refs": [
+    {"file": "rc-hero.png",          "source": "ramp.com/construction",              "page_type": "industry", "section_type": "hero"},
+    {"file": "rc-stats.png",         "source": "ramp.com/construction",              "page_type": "industry", "section_type": "stats"},
+    {"file": "rc-band.png",          "source": "ramp.com/construction",              "page_type": "industry", "section_type": "colour-band"},
+    {"file": "rc-integrations.png",  "source": "ramp.com/construction",              "page_type": "industry", "section_type": "integrations"},
+    {"file": "rc-quotes.png",        "source": "ramp.com/construction",              "page_type": "industry", "section_type": "quote-row"},
+
+    {"file": "ar-hero.png",          "source": "apollo.io/solutions/revops",          "page_type": "segment",  "section_type": "hero"},
+    {"file": "ar-cards.png",         "source": "apollo.io/solutions/revops",          "page_type": "segment",  "section_type": "card-grid"},
+    {"file": "ar-yellow.png",        "source": "apollo.io/solutions/revops",          "page_type": "segment",  "section_type": "feature-row"},
+    {"file": "ar-tools.png",         "source": "apollo.io/solutions/revops",          "page_type": "segment",  "section_type": "integrations"},
+    {"file": "ar-proof.png",         "source": "apollo.io/solutions/revops",          "page_type": "segment",  "section_type": "quote-row"},
+
+    {"file": "ramp-hero.png",        "source": "ramp.com",                            "page_type": "home",     "section_type": "hero"},
+    {"file": "ramp-cards.png",       "source": "ramp.com",                            "page_type": "home",     "section_type": "card-grid"},
+    {"file": "ramp-integrations.png","source": "ramp.com",                            "page_type": "home",     "section_type": "integrations"},
+    {"file": "ramp-proof.png",       "source": "ramp.com",                            "page_type": "home",     "section_type": "logo-wall-stat"},
+
+    {"file": "apollo-hero.png",      "source": "apollo.io",                           "page_type": "home",     "section_type": "hero"},
+    {"file": "apollo-featurerow.png","source": "apollo.io",                           "page_type": "home",     "section_type": "feature-row"},
+    {"file": "apollo-threelayer.png","source": "apollo.io",                           "page_type": "home",     "section_type": "card-grid"},
+
+    {"file": "lusha-hero.png",       "source": "lusha.com",                           "page_type": "home",     "section_type": "hero"},
+    {"file": "lusha-cards.png",      "source": "lusha.com",                           "page_type": "home",     "section_type": "card-grid"},
+    {"file": "lusha-tools.png",      "source": "lusha.com",                           "page_type": "home",     "section_type": "integrations"},
+    {"file": "lusha-sixjobs.png",    "source": "lusha.com",                           "page_type": "home",     "section_type": "tabbed-visual"},
+
+    {"file": "cyera-hero.png",       "source": "cyera.com",                           "page_type": "home",     "section_type": "hero"},
+
+    {"file": "dnb-stats.png",        "source": "OUR live homepage #statsw",           "page_type": "home",     "section_type": "stats"}
+  ],
+  "decisions": [
+    {"id": "hero",       "page": "industry-internal", "needs": "hero",         "our_section": "ind-a.html hero"},
+    {"id": "card",       "page": "industry-internal", "needs": "card-grid",    "our_section": "ind-a.html products"},
+    {"id": "delivery",   "page": "industry-internal", "needs": "integrations", "our_section": "ind-a.html delivery"},
+    {"id": "proof",      "page": "industry-internal", "needs": "quote-row",    "our_section": "ind-a.html proof — a customer QUOTE plus a case-study slot"},
+    {"id": "numbers",    "page": "industry-internal", "needs": "stats",        "our_section": "ind-a.html g-lift"},
+    {"id": "band",       "page": "industry-internal", "needs": "colour-band",  "our_section": "NONE — we have no colour band at all"},
+    {"id": "lobby-card", "page": "industries-lobby",  "needs": "card-grid",    "our_section": "ind-lobby.html industries — NAVIGATION cards, not content"}
+  ]
+}
